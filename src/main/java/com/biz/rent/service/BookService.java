@@ -5,16 +5,15 @@ import java.util.List;
 import com.biz.rent.model.BookVO;
 
 public interface BookService {
-
+	
+	// 기본 CRUD
 	public List<BookVO> selectAll();
-	
 	public BookVO findById(long book_seq);
-	
 	public int insert(BookVO bookVO);
-	
 	public int update(BookVO bookVO);
-	
-	public int delete(long id);
-	
+	public int delete(long book_seq);
+
+	// 검색 Method
+	public List<BookVO> getSearchList(String s_string);
 	
 }

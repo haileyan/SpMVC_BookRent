@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!DOCTYPE html>
 <html>
@@ -16,14 +15,13 @@ $(function(){
 			let id = $(this).attr("data-id")
 			if(confirm( id + " 회원정보를 삭제 할까요?")){
 				location.replace("${rootPath}/admin/user/delete?id=" + id)
-				return false
 			}
 		})
+		
 		$(".user-tr").click(function(){
 			let id = $(this).attr("data-id")
 			
-			// userVO 객체를 활용해서 id 값을 받기 위해서
-			// ?id 대신  ?user_seq로 설정한다
+			// userVO 객체를 활용해서 id 값을 받기 위해서 ?id 대신 ?user_seq로 설정한다
 			location.href= "${rootPath}/admin/user/update?user_seq=" + id
 		})
 })
@@ -41,6 +39,7 @@ $(function(){
 		<th>탈퇴일</th>
 		<th>탈퇴여부</th>
 		<th>대여 도서권수</th>
+		<th>총 대여금액</th>
 		<th>Delete</th>
 	</tr>
 	<c:choose>
@@ -61,7 +60,7 @@ $(function(){
 					<td>${vo.user_out_date}</td>
 					<td>
 						<c:if test="${vo.user_out_yn == 'Y'}">탈퇴</c:if>
-						<c:if test="${vo.user_out_yn== 'N'}">회원</c:if>
+						<c:if test="${vo.user_out_yn == 'N'}">회원</c:if>
 					</td>
 					<td>${vo.user_rent_count}</td>
 					<td>${vo.user_rent_total}</td>
@@ -70,8 +69,6 @@ $(function(){
 			</c:forEach>
 		</c:otherwise>
 	</c:choose>
-
-
 </table>
 </body>
 </html>

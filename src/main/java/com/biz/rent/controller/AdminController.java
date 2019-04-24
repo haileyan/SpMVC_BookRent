@@ -27,10 +27,16 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/admin")
 @SessionAttributes({"userVO", "bookVO"})
 public class AdminController {
+	
+	@Autowired
+	UserDao uDao;
+	
+	@Autowired
+	BookService bService;
 
 	/*
-	 * SessionAttributes Annotaion should be placed in the bottom of RequestMapping
-	 * and also followed the 초기화 메서드!!!!! for using it.
+	 * SessionAttributes Annotation should be placed in the 'bottom' of RequestMapping
+	 * and also followed the method of init for using it.
 	 */
 	@ModelAttribute("userVO")
 	public UserVO newUser() {	// 별도로 VO를 생성하지 않아도 이 메서드는 자동으로 작동된다
@@ -50,13 +56,7 @@ public class AdminController {
 		vo.setBook_rent_yn("Y");
 		return vo;
 	}
-	
-	@Autowired
-	UserDao uDao;
-	
-	@Autowired
-	BookService bService;
-	
+
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String home() {
 		return "admin_home";
@@ -94,7 +94,7 @@ public class AdminController {
 		model.addAttribute("userVO", userVO);
 		model.addAttribute("LIST", uList);
 		model.addAttribute("BODY", "USER_LIST");
-		return "redirect:/admin/user";
+		return "admin_home";
 	}
 	
 	@RequestMapping(value="/user/update", method=RequestMethod.POST)
@@ -117,6 +117,7 @@ public class AdminController {
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
+	// 도서정보를 호출하는 Method
 	@RequestMapping(value="/book", method=RequestMethod.GET)
 	public String book(@ModelAttribute("bookVO") BookVO bookVO, Model model) {
 		
@@ -127,6 +128,7 @@ public class AdminController {
 		return "admin_home";
 	}
 	
+	// 새로운 도서정보를 저장하고 다시 도서정보 리스트로 전환하는 Method
 	@RequestMapping(value="/book", method=RequestMethod.POST, produces="text/html;charset=utf8")
 	public String book(@ModelAttribute("bookVO") BookVO bookVO, Model model, SessionStatus session) {
 		
@@ -142,11 +144,13 @@ public class AdminController {
 	public String book_update(@ModelAttribute("bookVO") BookVO bookVO, Model model) {
 		
 		long book_seq = bookVO.getBook_seq();
-		List<BookVO> bList = bService.selectAll();
-		bookVO = bService.findById(book_seq);
 		
-		model.addAttribute("LIST", bList);
+		bookVO = bService.findById(book_seq);
 		model.addAttribute("bookVO", bookVO);
+		
+		List<BookVO> bList = bService.selectAll();
+		model.addAttribute("LIST", bList);
+		
 		model.addAttribute("BODY", "BOOK_LIST");
 		
 		return "admin_home";
@@ -169,8 +173,9 @@ public class AdminController {
 	 * PathVariable("id")라고 지정을 하고 mapping value="..../delete/{id}라고 지정을 해 두면 
 	 * web에서 보낼 때 ..../delete/3 이라고 설정을 하면
 	 * 3이라는 값이 id 변수에 담겨서 서버에 전달이 된다.
+	 * 이 경우, id가 null 값이 되면 오류 발생
 	 * 
-	 * But, 단일변수만 받아 사용 가능함	 
+	 * PathVarialbe -> 단일변수만 받아 사용 가능함	 
 	 */
 	@RequestMapping(value="/book/delete/{id}", method=RequestMethod.GET)
 	public String book_delete(@PathVariable("id") long id) {
@@ -178,6 +183,7 @@ public class AdminController {
 		return "redirect:/admin/book";
 	}
 	
+	// 어떠한 값도 전달되지 않으면 다른 페이지로 Redirect 
 	@RequestMapping(value="/book/delete", method=RequestMethod.GET)
 	public String book_delete( ) {
 		return "redirect:/admin/book";

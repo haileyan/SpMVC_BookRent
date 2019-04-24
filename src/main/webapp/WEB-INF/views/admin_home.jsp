@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <c:set var="rootPath" value="${pageContext.request.contextPath}"/>        
@@ -27,9 +26,11 @@ section {
 	hight:100%;
 }
 
-#main-title {
-	height: 70px;
-	background-color:blue;
+#admin-title {
+	background-image:url("https://images.unsplash.com/photo-1549728662-1499eff84059?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+	background-repeat:none;
+	background-size:cover;
+	height: 250px;
 	color:white;
 	text-align:center;
 }
@@ -72,18 +73,17 @@ article {
 	background-color: #ddd;
 	color:black;
 }
-
 </style>
 </head>
 <body>
 <section>
-<article id="main-title">
+<article id="admin-title">
 		<h3>ABC RENTAL SHOP(Admin Page)</h3>
 </article>		
 	<article id="admin-body">
 		<aside>
 			<ul>
-				<li><a href="${rootPath}/">판매관리</a></li>
+				<li><a href="${rootPath}/">도서대여</a></li>
 				<li><a href="${rootPath}/admin/user">회원관리</a></li>
 				<li><a href="${rootPath}/admin/book">도서관리</a></li>
 				<li><a href="">대여관리</a></li>
@@ -92,23 +92,25 @@ article {
 		<article>
 			<c:choose>
 				<c:when test="${ fn:startsWith(BODY, 'USER')}">
+					<c:if test="${BODY=='USER_LIST'}" >
 					<p style="text-align:center;font-weight:bold;color:#FE2E64;font-size:15pt;">▶ 회원정보 관리 ◀</p>
-					<div>
-					<%@ include file="/WEB-INF/views/admin_body/admin_user_write.jspf" %>
-					</div>
-					<h3></h3>
-					<div>
-					<%@ include file="/WEB-INF/views/admin_body/admin_user_list.jspf" %>
-					</div>
+						<div>
+							<%@ include file="/WEB-INF/views/admin_body/admin_user_write.jspf" %>
+						</div>
+						<h3></h3>
+						<div>
+							<%@ include file="/WEB-INF/views/admin_body/admin_user_list.jspf" %>
+						</div>
+					</c:if>
 				</c:when>
 				<c:when test="${BODY =='BOOK_LIST'}">
 					<p style="font-weight=bold;color:purple;">도서정보 관리</p>
-					<div>
-					<%@ include file="/WEB-INF/views/admin_body/admin_book_write.jspf" %>
-					</div>
-					<div>
-					<%@ include file="/WEB-INF/views/admin_body/admin_book_list.jspf" %>
-					</div>				
+						<div>
+							<%@ include file="/WEB-INF/views/admin_body/admin_book_write.jspf" %>
+						</div>
+						<div>
+							<%@ include file="/WEB-INF/views/admin_body/admin_book_list.jspf" %>
+						</div>				
 				</c:when>
 			<c:otherwise>
 				<h3>COMING SOON....</h3>
