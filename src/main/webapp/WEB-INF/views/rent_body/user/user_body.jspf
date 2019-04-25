@@ -14,7 +14,7 @@ $(function(){
 })
 </script>
 
-<input type="text" name="user_text" id="user_text" placeholder="회원이름/전화번호 입력후 Enter">
+<input type="text" name="user_text" id="user_text" placeholder="이름/전화번호 입력 후 Enter">
 	
 <div id="user_list">
 

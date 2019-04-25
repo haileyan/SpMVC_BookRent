@@ -8,6 +8,22 @@
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
+<style>
+	th, td {
+		text-align:center;
+	}
+	
+	table {
+		margin: auto;	
+		width:97%;	
+	}
+	
+	th {
+		color:#848484;
+		text-shadow: 1px 1px black;
+	}
+
+</style>
 <body>
 <script>
 $(function(){
@@ -40,7 +56,7 @@ $(function(){
 		<th>탈퇴여부</th>
 		<th>대여 도서권수</th>
 		<th>총 대여금액</th>
-		<th>Delete</th>
+		<th></th>
 	</tr>
 	<c:choose>
 		<c:when test="${empty LIST}">
@@ -64,7 +80,7 @@ $(function(){
 					</td>
 					<td>${vo.user_rent_count}</td>
 					<td>${vo.user_rent_total}</td>
-					<td><button class="btn_delete" data-id="${vo.user_seq}">Delete</button></td>
+					<td class="btn_delete" data-id="${vo.user_seq}"><img src="https://img.icons8.com/material/20/000000/close-window.png"></td>
 				</tr>
 			</c:forEach>
 		</c:otherwise>

@@ -16,8 +16,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.contextMenu.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.ui.position.js"></script>
 <style>
+@import url(//fonts.googleapis.com/earlyaccess/jejuhallasan.css);
 body,html {
 	height:100%;
+	background-image:url("https://images.unsplash.com/photo-1496626868305-15f52fa605b7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+	background-size:contain;
+	font-family: 'Jeju Hallasan', cursive;
+}
+
+#title-text {
+	padding-top:30pt;
+	text-shadow:0 0 3px #000000;
 }
 
 section {
@@ -27,12 +36,14 @@ section {
 }
 
 #admin-title {
-	background-image:url("https://images.unsplash.com/photo-1549728662-1499eff84059?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+	background-image:url("https://images.unsplash.com/photo-1453726007388-5df12357fcc6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1988&q=80");
 	background-repeat:none;
-	background-size:cover;
+	background-size:contain;
+	background-position:center;
 	height: 250px;
 	color:white;
 	text-align:center;
+	font-size:30pt;
 }
 
 article {
@@ -50,10 +61,11 @@ article {
 
 #admin-body aside {
 	width:250px;
-	background-color: #5882FA;
+	background-color: #D91919;
 	color:white;
 	padding:0;
 	text-align:center;
+	font-size:25pt;
 }
 
 #admin-body ul {
@@ -63,6 +75,7 @@ article {
 
 #admin-body a {
 	color:white;
+	text-shadow:1px 1px black;
 	text-decoration:none;
 	display:block;
 	padding: 5% 5%;
@@ -72,13 +85,22 @@ article {
 #admin-body a:hover {
 	background-color: #ddd;
 	color:black;
+	text-shadow:1px 1px white;
+}
+
+.book_write, .user_write {
+	border: 1px dashed white;
+	width: 95%;
+	padding: 10pt;
+	margin: auto;
+	margin-bottom:15pt;
 }
 </style>
 </head>
 <body>
 <section>
 <article id="admin-title">
-		<h3>ABC RENTAL SHOP(Admin Page)</h3>
+		<h3 id="title-text">ABC RENTAL SHOP(Admin Page)</h3>
 </article>		
 	<article id="admin-body">
 		<aside>
@@ -93,19 +115,18 @@ article {
 			<c:choose>
 				<c:when test="${ fn:startsWith(BODY, 'USER')}">
 					<c:if test="${BODY=='USER_LIST'}" >
-					<p style="text-align:center;font-weight:bold;color:#FE2E64;font-size:15pt;">▶ 회원정보 관리 ◀</p>
-						<div>
+					<p style="text-align:center;color:white;font-size:15pt;text-decoration:underline;text-shadow:0 0 2px #000000;">회원정보 관리</p>
+						<div class="user_write">
 							<%@ include file="/WEB-INF/views/admin_body/admin_user_write.jspf" %>
 						</div>
-						<h3></h3>
 						<div>
 							<%@ include file="/WEB-INF/views/admin_body/admin_user_list.jspf" %>
 						</div>
 					</c:if>
 				</c:when>
 				<c:when test="${BODY =='BOOK_LIST'}">
-					<p style="font-weight=bold;color:purple;">도서정보 관리</p>
-						<div>
+					<p style="text-align:center;color:white;font-size:15pt;text-decoration:underline;text-shadow:0 0 2px #000000;">도서정보 관리</p>
+						<div class="book_write">
 							<%@ include file="/WEB-INF/views/admin_body/admin_book_write.jspf" %>
 						</div>
 						<div>

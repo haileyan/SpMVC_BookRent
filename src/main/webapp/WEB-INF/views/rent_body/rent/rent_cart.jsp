@@ -5,8 +5,20 @@
 	#cart_item_delete {
 		cursor : pointer;
 	}
+	
+	#cart_title {
+		text-align:center;
+		font-size:15pt;
+		text-decoration:underline;	
+		text-shadow:0 0 2px #0040FF;
+	}
+	
+	.cart_button {
+		text-align:center;
+		margin-top:10pt;
+		margin-bottom:10pt;
+	}
 </style>
-
 <script>
 $(function(){
 		$("#btn_cart_clear").click(function(){
@@ -32,7 +44,7 @@ $(function(){
 	})
 })
 </script>    
-<p>장바구니</p>
+<p id="cart_title">장바구니</p>
 
 <table>
 	<tr>
@@ -43,7 +55,7 @@ $(function(){
 	</tr>
 	<c:choose>
 		<c:when test="${empty CART}">
-			<tr><td colspan="2">장바구니가 비었습니당!!!</td></tr>
+			<tr><td colspan="4">장바구니가 비었습니당!!!</td></tr>
 		</c:when>
 		<c:otherwise>
 			<c:forEach var="item"  items="${CART}" varStatus="i">
@@ -58,7 +70,7 @@ $(function(){
 	</c:choose>
 </table>
 
-<div>
-	<button id="btn_check_out">결제</button>
-	<button id="btn_cart_clear">비우기</button>
+<div class="cart_button">
+	<span id="btn_check_out"><img src="https://img.icons8.com/ultraviolet/40/000000/cash-in-hand.png"></span>
+	<span id="btn_cart_clear"><img src="https://img.icons8.com/ultraviolet/40/000000/clear-shopping-cart.png"></span>
 </div>

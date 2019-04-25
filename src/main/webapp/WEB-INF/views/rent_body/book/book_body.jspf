@@ -16,7 +16,7 @@ $(function(){
 })
 </script>
 
-<input type="text" name="book_text" id="book_text" placeholder="도서정보 입력후 Enter">
+<input type="text" name="book_text" id="book_text" placeholder="도서정보 입력 후 Enter">
 
 <div id="book_list">
 

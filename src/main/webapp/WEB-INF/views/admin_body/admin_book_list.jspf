@@ -7,6 +7,23 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<style>
+	th {
+		color:#848484;
+		text-shadow: 1px 1px black;
+	}
+
+	th, td{
+		text-align:center;
+	
+	}
+
+	table {
+		margin: auto;
+		width:97%;	
+	}
+
+</style>
 <body>
 <script>
 $(function(){

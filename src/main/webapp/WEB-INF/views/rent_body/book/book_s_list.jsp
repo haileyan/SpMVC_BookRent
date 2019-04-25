@@ -34,7 +34,7 @@ $(function(){
 </script>  
 <table>
 <tr><th>도서명</th><th>저자</th></tr>
-<tr><th>가격</th><th>대여</th></tr>
+<tr style="border-bottom:2px dashed #A9BCF5;"><th>가격</th><th>대여</th></tr>
 <c:choose>
 	<c:when test="${empty BOOKS}">
 		<tr><td colspan="2">도서목록이 없습니다</td></tr>

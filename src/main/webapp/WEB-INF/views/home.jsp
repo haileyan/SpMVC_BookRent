@@ -22,10 +22,10 @@ body{
 	display:flex;
 	margin: 0 10px 0;
 	padding-top:60px;
-	background-image:url("https://images.unsplash.com/photo-1551040921-22a8552acb0d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+	background-image:url("https://images.unsplash.com/photo-1533756102515-155e3863ee1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80");
 	background-repeat:none;
 	background-position:center;
-	background-size:cover;
+	background-size:inherit;
 }
 
 #main-nav{
@@ -35,6 +35,7 @@ body{
 	width:100%;
 	padding: 0 0 auto;
 	font-size:15pt;
+	text-shadow:1px 1px black;
 	
 	display:flex;
 	
@@ -119,7 +120,7 @@ $(function(){
 	<article id="user" class="body-box"><p style="text-align:center;font-size:15pt;">회원정보
 		<%@ include file="/WEB-INF/views/rent_body/user/user_body.jspf" %>
 	</article>
-	<article id="rent" class="body-box"><p style="text-align:center;font-size:15pt;text-decoration: underline;">대여정보
+	<article id="rent" class="body-box"><p style="text-align:center;font-size:15pt;text-decoration: underline;text-shadow:0 0 2px #0040FF;">대여정보
 		<%@ include file="/WEB-INF/views/rent_body/rent/rent_body.jspf" %>
 	</article>
 	<article id="book" class="body-box"><p style="text-align:center;font-size:15pt;">도서정보
