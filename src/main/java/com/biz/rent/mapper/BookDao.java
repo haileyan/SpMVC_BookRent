@@ -11,7 +11,7 @@ import com.biz.rent.model.BookVO;
 
 public interface BookDao {
 
-	@Select(" SELECT * FROM tbl_book ")
+	@Select(" SELECT * FROM tbl_book ORDER BY book_seq ASC ")
 	public List<BookVO> selectAll();
 	
 	@Select(" SELECT * FROM tbl_book WHERE book_seq = #{book_seq} ")

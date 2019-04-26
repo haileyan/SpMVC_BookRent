@@ -75,7 +75,7 @@ body{
 
 #main-container {
 	display:flex;
-	flex-flow:row;
+	flex-direction:column;	
 	flex-wrap:nowrap;
 	width:100%;
 	padding: 15px 15px 2000px;
@@ -93,6 +93,44 @@ body{
 		
 }
 
+.main-info{
+	display:flex;
+	flex-direction:row;
+}
+
+ .promo-slide, .counter, .contact {
+	width:100%;
+	height:300px;
+	display:flex;
+	margin-bottom:50px;
+}
+
+.colum{
+	width:25%;
+	float:left;
+	padding:0 5px;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #444;
+  color: white;
+}
+
+.promo-slide {
+	width:100%;
+	height:300px;
+}
 </style>
 <script>
 $(function(){
@@ -116,7 +154,9 @@ $(function(){
 	<a href="#">로그인</a>
 	<a href="${rootPath}/admin/">관리자</a>
 </nav>
+
 <section id="main-container">
+<div class="main-info">
 	<article id="user" class="body-box"><p style="text-align:center;font-size:15pt;">회원정보
 		<%@ include file="/WEB-INF/views/rent_body/user/user_body.jspf" %>
 	</article>
@@ -126,6 +166,75 @@ $(function(){
 	<article id="book" class="body-box"><p style="text-align:center;font-size:15pt;">도서정보
 		<%@ include file="/WEB-INF/views/rent_body/book/book_body.jspf" %>
 	</article>
+</div>
+	
+<article class="promo-slide">
+<img src="images/1.jpg" style="width:100%">
+</article>
+
+<article class="counter">
+<div class="colum">
+<div class="card">
+<p><img src="https://img.icons8.com/ultraviolet/60/000000/groups.png"></p>
+<p>100+
+<p>Partners
+</div>
+</div>
+
+<div class="colum">
+<div class="card">
+<p><img src="https://img.icons8.com/ultraviolet/60/000000/groups.png"></p>
+<p>100+
+<p>Partners
+</div>
+</div>
+
+<div class="colum">
+<div class="card">
+<p><img src="https://img.icons8.com/ultraviolet/60/000000/groups.png"></p>
+<p>100+
+<p>Partners
+</div>
+</div>
+
+<div class="colum">
+<div class="card">
+<p><img src="https://img.icons8.com/ultraviolet/60/000000/groups.png"></p>
+<p>100+
+<p>Partners
+</div>
+</div>
+</article>
+
+<article class="contact">
+<div class="column-1">
+<p style="font-size:20pt;text-decoration:underline;">Contact Us</p>
+
+<p style="font-size:15pt;">We're always welcome your attention!</p><br/>
+<p><img src="https://img.icons8.com/ultraviolet/30/000000/marker.png">&nbsp; Gwangju, South Korea
+<p><img src="https://img.icons8.com/ultraviolet/30/000000/phone.png">&nbsp; +82 123-4567
+<p><img src="https://img.icons8.com/ultraviolet/30/000000/secured-letter.png">&nbsp; cocojey02@gmail.com
+</div>
+
+<div class="column-2">
+<form class="feedback-form" action="" autocomplete="off">
+
+<label for="form-name">Name</label>
+<input class="form-name" type="text" name="name" required><br/>
+
+<label for="form-email">Email</label>
+<input class="form-email" type="text" name="email" required><br/>
+
+<label for="form-name">Message</label>
+<input class="form-message" type="text" name="message" required><br/>
+
+<label for="form-check">It's an useful web:)</label>
+<input class="form-check" type="checkbox" name="Like">
+
+<div class="btn_submit"><img src="https://img.icons8.com/color/48/000000/filled-sent.png"></div>
+</form>
+</div>
+</article>	
 </section>
 </body>
 </html>

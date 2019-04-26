@@ -21,6 +21,7 @@
 	table {
 		margin: auto;
 		width:97%;	
+		margin-bottom:20pt;
 	}
 
 </style>

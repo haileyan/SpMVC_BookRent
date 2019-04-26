@@ -37,7 +37,7 @@ $(function(){
 		$("#btn_check_out").click(function(){
 			$.get("${rootPath}/check_out", function(result){
 				if(result == 'Check_out') {
-					$("#cart_box").html(result)
+					$("#cart_box").html("결제 해주셔서 감사합니다:)")
 					alert("결제가 완료 되었습니다!!!!!")
 				}
 			})

@@ -25,7 +25,7 @@ public class UserSQL {
 	public String user_update_sql() {
 		SQL sql = new SQL()
 				.UPDATE("tbl_user")
-				.SET(" USER_NAME	= #{user_name, jdbcType=VARCHAR} ")
+				.SET(" USER_NAME = #{user_name, jdbcType=VARCHAR} ")
 				.SET(" USER_BIRTH = #{user_birth, jdbcType=VARCHAR} ")
 				.SET(" USER_SEX	= #{user_sex, jdbcType=VARCHAR} ")
 				.SET(" USER_PHONE = #{user_phone, jdbcType=VARCHAR} ")
@@ -36,7 +36,7 @@ public class UserSQL {
 				.SET(" USER_OUT_YN = #{user_out_yn, jdbcType=VARCHAR} ")
 				.SET(" USER_RENT_COUNT = #{user_rent_count, jdbcType=INTEGER} ")
 				.SET(" USER_RENT_TOTAL = #{user_rent_total, jdbcType=INTEGER} ")
-				.WHERE(" USER_SEQ = # {user_seq, jdbcType=VARCHAR} ");
+				.WHERE(" USER_SEQ = #{user_seq, jdbcType=VARCHAR} ");
 		return sql.toString();
 	}
 	

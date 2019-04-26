@@ -1,14 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="f"  %>
+<script>
+$(function(){
+	$("#btn_save").click(function(){
+		let user_name = $("#user_name").val()
+		let user_birth = $("#user_birth").val()
+		let user_phone = $("#user_phone").val()
+		if(user_name == ""){
+			alert("회원 이름을 반드시 입력하세요")
+			$("#user_name").focus()
+			return false;
+		}
+		if(user_birth == ""){
+			alert("생년월일을 반드시 입력하세요")
+			$("#user_birth").focus()
+			return false;
+		}
+		if(user_phone == ""){
+			alert("전화번호를 반드시 입력하세요")
+			$("#user_phone").focus()
+			return false;
+		}
+	})
+})
+</script>
+
 <f:form modelAttribute="userVO">
-	<f:input path="user_name" placeholder="이름"/>
-	<f:input path="user_birth" placeholder="생년월일"/>
+	<f:input path="user_name" id="user_name" placeholder="이름"/>
+	<f:input path="user_birth" id="user_birth" placeholder="생년월일"/>
 	
 	<f:radiobutton path="user_sex" value="F" label="여"/>
 	<f:radiobutton path="user_sex" value="M" label="남"/>
 	
-	<f:input path="user_phone" placeholder="전화번호"/>
+	<f:input path="user_phone" id="user_phone" placeholder="전화번호"/>
 	<f:input path="user_email" placeholder="이메일"/>
 	<f:input path="user_image" placeholder="사진"/>
 	<f:input path="user_reg_date" placeholder="가입일"/>
@@ -17,6 +42,6 @@
 	<f:radiobutton path="user_out_yn" value="Y" label="탈퇴"/>
 	<f:radiobutton path="user_out_yn" value="N" label="가입"/>
 	 
-	<button>저장</button>
+	<button id="btn_save">저장</button>
 	
 </f:form>

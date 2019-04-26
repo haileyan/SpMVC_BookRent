@@ -110,7 +110,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/user/delete", method=RequestMethod.GET)
-	public String delete(@RequestParam long id) {
+	public String delete(@RequestParam("id") long id) {
 		uDao.delete(id);
 		return "redirect:/admin/user";
 	}
