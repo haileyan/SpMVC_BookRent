@@ -22,7 +22,6 @@ import com.biz.rent.service.BookService;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Controller
 @RequestMapping("/admin")
 @SessionAttributes({"userVO", "bookVO"})
@@ -75,7 +74,6 @@ public class AdminController {
 	@RequestMapping(value="/user", method=RequestMethod.POST)
 	public String user(@ModelAttribute("userVO") UserVO userVO, Model model, SessionStatus session) {
 		
-		log.debug("UserVO : " + userVO.toString());
 		uDao.insert(userVO);
 
 		// 페이지를 벗어나면 기존에 입력한 내용을 '초기화' 해주는 코드(!!필수조건!!) 
@@ -100,7 +98,6 @@ public class AdminController {
 	@RequestMapping(value="/user/update", method=RequestMethod.POST)
 	public String user_update(@ModelAttribute("userVO") UserVO userVO, Model model, SessionStatus session) {
 		
-		log.debug("UserVO : " + userVO.toString());
 		uDao.update(userVO);
 
 		// 페이지를 벗어나면 기존에 입력한 내용을 '초기화' 해주는 코드(!!필수조건!!) 
@@ -132,7 +129,6 @@ public class AdminController {
 	@RequestMapping(value="/book", method=RequestMethod.POST, produces="text/html;charset=utf8")
 	public String book(@ModelAttribute("bookVO") BookVO bookVO, Model model, SessionStatus session) {
 		
-		log.debug("BookVO : " + bookVO.toString());
 		bService.insert(bookVO);
 		
 		session.setComplete();

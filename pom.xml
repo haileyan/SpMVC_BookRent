@@ -12,7 +12,7 @@
 	<repositories>
 		<repository>
 			<id>oracle-repo</id>
-			<url>https://mvnrepository.com/repos/odysseusinc-community-libs-release-local</url>
+			<url>https://packages.atlassian.com/maven-3rdparty/</url>
 		</repository>
 	</repositories>
 
@@ -73,7 +73,8 @@
 		<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc6</artifactId>
-			<version>12.1.0.1</version>
+			<version>12.1.0.1-atlassian-hosted</version>
+			<scope>test</scope>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->

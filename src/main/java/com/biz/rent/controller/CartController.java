@@ -19,7 +19,6 @@ import com.biz.rent.service.CartService;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Controller
 @RequestMapping("/rent")
 public class CartController {
@@ -46,9 +45,6 @@ public class CartController {
 				
 				httpSession.setAttribute("CART", returnCart);
 				
-				for(CartVO vo : returnCart) {
-					log.debug("Cart" + vo.toString());
-				}
 			}
 			return "rent_body/rent/rent_cart";
 			

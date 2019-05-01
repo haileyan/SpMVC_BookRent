@@ -17,6 +17,10 @@ $(function(){
 	input {
 		margin: 5px;
 	}
+	
+	label {
+		margin-left:10px;
+	}
 
 	#btn_rent {
 		text-align:center;

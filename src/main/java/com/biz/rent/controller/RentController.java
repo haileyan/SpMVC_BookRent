@@ -13,9 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.biz.rent.model.CartVO;
 import com.biz.rent.service.RentService;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 @Controller
 public class RentController {
 
@@ -31,9 +28,6 @@ public class RentController {
 			return "Your cart is empty";
 		}
 		
-		for(CartVO vo : cartList) {
-			log.debug("CartList : " + vo.toString());
-			}
 		int ret = rService.cart_insert(cartList);
 		
 		httpSession.removeAttribute("CART");	//	세션 삭제

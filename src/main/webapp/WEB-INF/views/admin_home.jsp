@@ -134,7 +134,7 @@ article {
 						</div>				
 				</c:when>
 			<c:otherwise>
-				<h3>COMING SOON....</h3>
+				<h3>&nbsp; 메뉴를 선택하세요</h3>
 			</c:otherwise>
 			</c:choose>
 		</article>
