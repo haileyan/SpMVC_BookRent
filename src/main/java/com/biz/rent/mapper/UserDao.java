@@ -12,7 +12,7 @@ import com.biz.rent.model.UserVO;
 
 public interface UserDao {
 
-	@Select(" SELECT * FROM tbl_user ")
+	@Select(" SELECT * FROM tbl_user ORDER BY user_seq ASC ")
 	public List<UserVO> selectAll();
 	
 	@Select("SELECT * FROM tbl_user WHERE user_seq = #{user_seq}")

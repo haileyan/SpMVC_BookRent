@@ -18,6 +18,10 @@
 		margin-top:10pt;
 		margin-bottom:10pt;
 	}
+	
+	#btn_check_out, #btn_cart_clear {
+		cursor:pointer;
+	}
 </style>
 <script>
 $(function(){
